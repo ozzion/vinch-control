@@ -1,1 +1,4 @@
-STOP
+if (body == "OPEN") { ... }
+else if (body == "STOP") { ... }
+else if (body == "UP") { ... }
+else if (body == "DOWN") { ... }
