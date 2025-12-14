@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Vinç Kontrol</title>
+</head>
+<body style="font-family: Arial; text-align:center">
+
+<h2>VINÇ KONTROL</h2>
+
+<button onclick="setCmd('OPEN')">AÇ</button><br><br>
+<button onclick="setCmd('UP')">YUKARI</button><br><br>
+<button onclick="setCmd('DOWN')">AŞAĞI</button><br><br>
+<button onclick="setCmd('STOP')">KAPAT</button>
+
+<script>
+function setCmd(cmd){
+  fetch('command.txt', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'text/plain' },
+    body: cmd
+  });
+}
+</script>
+
+</body>
+</html>
