@@ -4,22 +4,21 @@
   <meta charset="utf-8">
   <title>Vinç Kontrol</title>
 </head>
-<body style="font-family: Arial; text-align:center">
+<body style="text-align:center;font-family:Arial">
 
 <h2>VINÇ KONTROL</h2>
 
-<button onclick="setCmd('OPEN')">AÇ</button><br><br>
-<button onclick="setCmd('UP')">YUKARI</button><br><br>
-<button onclick="setCmd('DOWN')">AŞAĞI</button><br><br>
-<button onclick="setCmd('STOP')">KAPAT</button>
+<button onclick="send('/open')">AÇ</button><br><br>
+<button onclick="send('/up')">YUKARI</button><br><br>
+<button onclick="send('/down')">AŞAĞI</button><br><br>
+<button onclick="send('/stop')">STOP</button><br><br>
+<button onclick="send('/close')">KAPAT</button>
 
 <script>
-function setCmd(cmd){
-  fetch('command.txt', {
-    method: 'PUT',
-    headers: { 'Content-Type': 'text/plain' },
-    body: cmd
-  });
+const ESP_IP = "http://192.168.1.XXX"; // ESP IP BURAYA
+
+function send(cmd){
+  fetch(ESP_IP + cmd).catch(()=>{});
 }
 </script>
 
